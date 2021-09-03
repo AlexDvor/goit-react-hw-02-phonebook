@@ -17,7 +17,9 @@ class Form extends Component {
 
     onSubmitForm = (e) => {
         e.preventDefault();
-        this.props.data(this.state);
+        const { data } = this.props;
+        const contactName = this.state;
+        data(contactName);
         this.resetForm();
     }
 

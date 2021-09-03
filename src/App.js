@@ -4,13 +4,14 @@ import Form from "./components/Form";
 import Contact from "./components/Contact";
 
 class App extends Component {
+
   state = {
     contacts: [],
     name: ''
   }
 
 
-  getDataName = (data) => {
+  getData = (data) => {
     console.log('appData',data)
     
   }
@@ -19,7 +20,7 @@ class App extends Component {
   
     return (
       <Container>
-        <Form data={this.getDataName}></Form>
+        <Form data={this.getData}></Form>
         <Contact title='Contacts'></Contact>
       </Container>
     );
