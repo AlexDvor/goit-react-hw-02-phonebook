@@ -3,7 +3,7 @@ function ContactList({name}) {
     return (
         <>
             <li>{name}</li>
-            </>
+        </>
     )
 }
 

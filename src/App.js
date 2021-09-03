@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Container>
         <Form></Form>
-        <Contact></Contact>
+        <Contact title='Contacts'></Contact>
       </Container>
     );
   }
