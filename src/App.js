@@ -10,11 +10,16 @@ class App extends Component {
   }
 
 
+  getDataName = (data) => {
+    console.log('appData',data)
+    
+  }
 
   render() {
+  
     return (
       <Container>
-        <Form></Form>
+        <Form data={this.getDataName}></Form>
         <Contact title='Contacts'></Contact>
       </Container>
     );
