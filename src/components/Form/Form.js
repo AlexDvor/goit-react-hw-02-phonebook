@@ -29,6 +29,7 @@ class Form extends Component {
   resetForm = () => {
     this.setState({
       name: "",
+      id: "",
     });
   };
 
