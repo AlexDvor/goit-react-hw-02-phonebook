@@ -7,13 +7,14 @@ class Form extends Component {
   state = {
     name: "",
     id: "",
+    number: "",
   };
 
-  handleChange = (e) => {
-    const value = e.target.value;
+  handleChange = ({ target }) => {
+    const { name, value } = target;
     const randomId = uuidv4().slice(0, 5);
     this.setState({
-      name: value,
+      [name]: value,
       id: randomId,
     });
   };
@@ -24,12 +25,16 @@ class Form extends Component {
     const contactData = this.state;
     getData(contactData);
     this.resetForm();
+
+    // console.log(e.target.name);
+    // console.log(e.target.value);
   };
 
   resetForm = () => {
     this.setState({
       name: "",
       id: "",
+      number: "",
     });
   };
 
@@ -49,7 +54,17 @@ class Form extends Component {
               required
               placeholder="Name"
             />
-            <Button text="Add contact" onS />
+            <input
+              type="tel"
+              name="number"
+              value={this.state.number}
+              onChange={this.handleChange}
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+              required
+              // placeholder="Telefone"
+            />
+            <Button text="Add contact" />
           </form>
         </div>
       </>

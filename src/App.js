@@ -19,6 +19,7 @@ class App extends Component {
     const newContacts = {
       name: data.name,
       id: data.id,
+      number: data.number,
     };
     this.updateContacts(newContacts);
   };
@@ -30,6 +31,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.contacts);
     const { contacts } = this.state;
     return (
       <Container>
