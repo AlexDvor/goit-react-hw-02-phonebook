@@ -30,13 +30,29 @@ class App extends Component {
     }));
   };
 
+  handleFilterByName = (e) => {
+    const value = e.target.value;
+    this.setState({
+      filter: value,
+    });
+  };
+
   render() {
-    console.log(this.state.contacts);
-    const { contacts } = this.state;
+    // console.log(this.state.contacts);
+    const { contacts, filter } = this.state;
+    const filterByName = contacts.filter((item) => item.name.includes(filter));
+
     return (
       <Container>
-        <Form getData={this.getData}></Form>
-        <Contact data={contacts}></Contact>
+        <Form getData={this.getData} />
+        <p>Find Contacts by name</p>
+        <input
+          type="text"
+          name="filter"
+          value={this.state.filter}
+          onChange={this.handleFilterByName}
+        ></input>
+        <Contact data={filterByName}></Contact>
       </Container>
     );
   }

@@ -1,4 +1,4 @@
-function ContactList({ name, data }) {
+function ContactList({ data }) {
   return (
     <>
       {data.map(({ name, id, number }) => (

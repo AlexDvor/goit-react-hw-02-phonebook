@@ -25,9 +25,6 @@ class Form extends Component {
     const contactData = this.state;
     getData(contactData);
     this.resetForm();
-
-    // console.log(e.target.name);
-    // console.log(e.target.value);
   };
 
   resetForm = () => {
@@ -62,7 +59,7 @@ class Form extends Component {
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
               required
-              // placeholder="Telefone"
+              placeholder="Phone number"
             />
             <Button text="Add contact" />
           </form>
