@@ -38,9 +38,9 @@ class App extends Component {
     });
   };
 
-  renderListName = ({ contacts, filter }) => {
-    return contacts.filter((item) =>
-      item.name.toLowerCase().includes(filter.toLowerCase())
+  renderListName = (array, namer) => {
+    return array.filter((item) =>
+      item.name.toLowerCase().includes(namer.toLowerCase())
     );
   };
 
@@ -48,17 +48,13 @@ class App extends Component {
     // console.log(this.state.contacts);
     const { contacts, filter } = this.state;
 
-    // const filterByName = contacts.filter((item) =>
-    //   item.name.toLowerCase().includes(filter.toLowerCase())
-    // );
-
     return (
       <Container>
         <h2>Phonebook</h2>
         <Form getData={this.getData} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.handleFilterByName} />
-        <Contact data={this.renderListName(this.state)}></Contact>
+        <Contact data={this.renderListName(contacts, filter)}></Contact>
       </Container>
     );
   }
