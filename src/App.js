@@ -27,7 +27,7 @@ class App extends Component {
 
   updateContacts = (newData) => {
     this.setState((prevState) => ({
-      contacts: [...prevState.contacts, newData],
+      contacts: [newData, ...prevState.contact],
     }));
   };
 
@@ -38,20 +38,20 @@ class App extends Component {
     });
   };
 
-  renderListName = (array, namer) => {
+  renderListName = (array, name) => {
     return array.filter((item) =>
-      item.name.toLowerCase().includes(namer.toLowerCase())
+      item.name.toLowerCase().includes(name.toLowerCase())
     );
   };
 
   render() {
-    // console.log("render", this.state.contacts);
+    console.log("render", this.state.contacts);
     const { contacts, filter } = this.state;
 
     return (
       <Container>
         <h2>Phonebook</h2>
-        <Form getData={this.getData} contacts={contacts} />
+        <Form getData={this.getData} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.handleFilterByName} />
         <Contact data={this.renderListName(contacts, filter)}></Contact>
