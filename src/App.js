@@ -45,13 +45,13 @@ class App extends Component {
   };
 
   render() {
-    // console.log(this.state.contacts);
+    // console.log("render", this.state.contacts);
     const { contacts, filter } = this.state;
 
     return (
       <Container>
         <h2>Phonebook</h2>
-        <Form getData={this.getData} />
+        <Form getData={this.getData} contacts={contacts} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.handleFilterByName} />
         <Contact data={this.renderListName(contacts, filter)}></Contact>
