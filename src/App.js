@@ -4,24 +4,20 @@ import Form from "./components/Form";
 import Contact from "./components/Contact";
 
 class App extends Component {
-
   state = {
     contacts: [],
-    name: ''
-  }
-
+    filter: "",
+  };
 
   getData = (data) => {
-    console.log('appData',data)
-    
-  }
+    console.log("appData", data);
+  };
 
   render() {
-  
     return (
       <Container>
-        <Form data={this.getData}></Form>
-        <Contact title='Contacts'></Contact>
+        <Form getData={this.getData}></Form>
+        <Contact title="Contacts"></Contact>
       </Container>
     );
   }
