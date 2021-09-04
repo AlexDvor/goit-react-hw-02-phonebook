@@ -1,24 +1,28 @@
 // import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from "uuid";
 import { Component } from "react";
 import Button from "../Button";
 
 class Form extends Component {
   state = {
     name: "",
+    id: "",
   };
 
   handleChange = (e) => {
     const value = e.target.value;
+    const randomId = uuidv4().slice(0, 5);
     this.setState({
       name: value,
+      id: randomId,
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { data } = this.props;
-    const contactName = this.state;
-    data(contactName);
+    const { getData } = this.props;
+    const contactData = this.state;
+    getData(contactData);
     this.resetForm();
   };
 
@@ -33,7 +37,7 @@ class Form extends Component {
       <>
         <div>
           <h2>Phonebook</h2>
-          <form onSubmit={this.onSubmitForm}>
+          <form onSubmit={this.handleSubmit}>
             <input
               type="text"
               value={this.state.name}
