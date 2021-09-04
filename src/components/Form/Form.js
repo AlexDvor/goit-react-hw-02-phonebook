@@ -39,7 +39,6 @@ class Form extends Component {
     return (
       <>
         <div>
-          <h2>Phonebook</h2>
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"

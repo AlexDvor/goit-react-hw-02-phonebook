@@ -2,6 +2,7 @@ import { Container } from "./components/Container/Container";
 import { Component } from "react";
 import Form from "./components/Form";
 import Contact from "./components/Contact";
+import Filter from "./components/Filter";
 
 class App extends Component {
   state = {
@@ -40,18 +41,17 @@ class App extends Component {
   render() {
     // console.log(this.state.contacts);
     const { contacts, filter } = this.state;
-    const filterByName = contacts.filter((item) => item.name.includes(filter));
+
+    const filterByName = contacts.filter((item) =>
+      item.name.toLowerCase().includes(filter.toLowerCase())
+    );
 
     return (
       <Container>
+        <h2>Phonebook</h2>
         <Form getData={this.getData} />
-        <p>Find Contacts by name</p>
-        <input
-          type="text"
-          name="filter"
-          value={this.state.filter}
-          onChange={this.handleFilterByName}
-        ></input>
+        <h2>Contacts</h2>
+        <Filter filter={filter} onChange={this.handleFilterByName} />
         <Contact data={filterByName}></Contact>
       </Container>
     );
