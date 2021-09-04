@@ -38,7 +38,7 @@ class App extends Component {
     });
   };
 
-  test = ({ contacts, filter }) => {
+  renderListName = ({ contacts, filter }) => {
     return contacts.filter((item) =>
       item.name.toLowerCase().includes(filter.toLowerCase())
     );
@@ -58,7 +58,7 @@ class App extends Component {
         <Form getData={this.getData} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.handleFilterByName} />
-        <Contact data={this.test(this.state)}></Contact>
+        <Contact data={this.renderListName(this.state)}></Contact>
       </Container>
     );
   }
