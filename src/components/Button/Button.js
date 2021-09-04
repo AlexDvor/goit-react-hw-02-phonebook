@@ -1,8 +1,7 @@
+import { Button } from "./Button.styled";
 
-function Button ({text}) {
-    return (
-        <button type='submit'>{text}</button>
-    )
+function ButtonItem({ text }) {
+  return <Button type="submit">{text}</Button>;
 }
 
-export default Button;
+export default ButtonItem;

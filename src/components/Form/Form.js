@@ -1,7 +1,9 @@
 // import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from "uuid";
 import { Component } from "react";
-import Button from "../Button";
+import ButtonItem from "../Button";
+// style
+import { FormItem, Input } from "./Form.styled.jsx";
 
 class Form extends Component {
   state = {
@@ -39,8 +41,8 @@ class Form extends Component {
     return (
       <>
         <div>
-          <form onSubmit={this.handleSubmit}>
-            <input
+          <FormItem onSubmit={this.handleSubmit}>
+            <Input
               type="text"
               value={this.state.name}
               name="name"
@@ -50,7 +52,7 @@ class Form extends Component {
               required
               placeholder="Name"
             />
-            <input
+            <Input
               type="tel"
               name="number"
               value={this.state.number}
@@ -60,8 +62,8 @@ class Form extends Component {
               required
               placeholder="Phone number"
             />
-            <Button text="Add contact" />
-          </form>
+            <ButtonItem text="Add contact" />
+          </FormItem>
         </div>
       </>
     );
