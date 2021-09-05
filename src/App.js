@@ -26,6 +26,7 @@ class App extends Component {
   };
 
   updateContacts = (newData) => {
+    this.alertMessage(newData);
     this.setState((prevState) => ({
       contacts: [newData, ...prevState.contacts],
     }));
@@ -36,6 +37,12 @@ class App extends Component {
     this.setState({
       filter: value,
     });
+  };
+
+  alertMessage = (obj) => {
+    if (this.state.contacts.some((item) => item.name === obj.name)) {
+      return alert(`${obj.name} is already in contacts`);
+    }
   };
 
   renderListName = (array, name) => {
