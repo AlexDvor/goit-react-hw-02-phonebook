@@ -27,7 +27,7 @@ class App extends Component {
 
   updateContacts = (newData) => {
     this.setState((prevState) => ({
-      contacts: [newData, ...prevState.contact],
+      contacts: [newData, ...prevState.contacts],
     }));
   };
 
@@ -45,7 +45,7 @@ class App extends Component {
   };
 
   render() {
-    console.log("render", this.state.contacts);
+    // console.log("render", this.state.contacts);
     const { contacts, filter } = this.state;
 
     return (
