@@ -26,7 +26,9 @@ class App extends Component {
   };
 
   updateContacts = (newData) => {
-    this.alertMessage(newData);
+    if (this.state.contacts.some((item) => item.name === newData.name)) {
+      return alert(`${newData.name} is already in contacts`);
+    }
     this.setState((prevState) => ({
       contacts: [newData, ...prevState.contacts],
     }));
