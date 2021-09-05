@@ -2,6 +2,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Component } from "react";
 import ButtonItem from "../Button";
+import PropTypes from "prop-types";
 // style
 import { FormItem, Input } from "./Form.styled.jsx";
 
@@ -71,3 +72,10 @@ class Form extends Component {
 }
 
 export default Form;
+
+Form.propTypes = {
+  handleChange: PropTypes.func,
+  getData: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  resetForm: PropTypes.func,
+};

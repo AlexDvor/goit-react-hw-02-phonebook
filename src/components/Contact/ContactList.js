@@ -1,4 +1,5 @@
 import { Button } from "./ContactList.styled";
+import PropTypes from "prop-types";
 
 function ContactList({ data, onDeleteNameItem }) {
   return (
@@ -12,5 +13,15 @@ function ContactList({ data, onDeleteNameItem }) {
     </>
   );
 }
+
+ContactList.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+};
 
 export default ContactList;

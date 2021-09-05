@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Filter({ filter, onChange }) {
   return (
     <>
@@ -12,4 +14,8 @@ function Filter({ filter, onChange }) {
   );
 }
 
+Filter.propTypes = {
+  filter: PropTypes.string,
+  onChange: PropTypes.func,
+};
 export default Filter;
