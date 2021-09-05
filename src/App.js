@@ -41,12 +41,6 @@ class App extends Component {
     });
   };
 
-  alertMessage = (obj) => {
-    if (this.state.contacts.some((item) => item.name === obj.name)) {
-      return alert(`${obj.name} is already in contacts`);
-    }
-  };
-
   renderListName = (array, name) => {
     return array.filter((item) =>
       item.name.toLowerCase().includes(name.toLowerCase())
