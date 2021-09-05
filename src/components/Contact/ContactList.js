@@ -1,12 +1,12 @@
 import { Button } from "./ContactList.styled";
 
-function ContactList({ data }) {
+function ContactList({ data, onDeleteNameItem }) {
   return (
     <>
       {data.map(({ name, id, number }) => (
         <li key={id}>
           {name} : {number}
-          <Button>Delete</Button>
+          <Button onClick={() => onDeleteNameItem(id)}>Delete</Button>
         </li>
       ))}
     </>

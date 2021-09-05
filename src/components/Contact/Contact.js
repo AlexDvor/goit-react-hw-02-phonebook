@@ -1,10 +1,13 @@
 import ContactList from "./ContactList";
 
-function Contact({ data }) {
+function Contact({ data, onDeleteNameItem }) {
   return (
     <>
       <ul>
-        <ContactList data={data}></ContactList>
+        <ContactList
+          data={data}
+          onDeleteNameItem={onDeleteNameItem}
+        ></ContactList>
       </ul>
     </>
   );

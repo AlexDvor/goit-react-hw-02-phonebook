@@ -51,6 +51,12 @@ class App extends Component {
     );
   };
 
+  deleteNameItem = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((item) => item.id !== id),
+    }));
+  };
+
   render() {
     // console.log("render", this.state.contacts);
     const { contacts, filter } = this.state;
@@ -61,7 +67,10 @@ class App extends Component {
         <Form getData={this.getData} />
         <h2>Contacts</h2>
         <Filter filter={filter} onChange={this.handleFilterByName} />
-        <Contact data={this.renderListName(contacts, filter)}></Contact>
+        <Contact
+          data={this.renderListName(contacts, filter)}
+          onDeleteNameItem={this.deleteNameItem}
+        ></Contact>
       </Container>
     );
   }
